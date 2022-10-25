@@ -10,7 +10,7 @@ use Discord\Parts\User\Member;
 use Discord\Parts\Channel\Message;
 
 $ds = new Discord([
-    'token' => 'MTAzNDQyOTg2ODM5MTI3NjY2NA.GBvfR1.2RUDp7TzrTwRlRIVSN4JSrQaFZ-U3gRru0FdR8',
+    'token' => $_ENV['DISCORD_TOKEN'],
     // Токен, который мы сгенерировали ранее
     'intents' => Intents::getDefaultIntents() | Intents::GUILD_MEMBERS,
     // Понадобится для отслеживания событий участников
