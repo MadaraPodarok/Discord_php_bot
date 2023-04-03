@@ -1,9 +1,3 @@
-run = "php -S 0.0.0.0:8000 -t ."
+run = ["php", "run.php"]
 
-entrypoint = "index.php"
-
-[nix]
-channel = "stable-22_11"
-
-[deployment]
-run = ["sh", "-c", "php -S 0.0.0.0:8000 -t ."]
+entrypoint = "run.php"
