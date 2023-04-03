@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+
+  php:
+    build:
+      context: .
+      dockerfile: ./docker/php/Dockerfile
+    container_name: php
+    hostname: php
+    networks:
+      - discord-bot-network
+    volumes:
+      - type: bind
+        source: ./
+        target: /var/www
+    working_dir: /var/www
+
+  php_nginx:
+    container_name: php_nginx
+    depends_on:
+      - php
+    image: nginx
+    networks:
+      - discord-bot-network
+    ports:
+      - "801:801"
+    volumes:
+      - type: bind
+        source: ./
+        target: /var/www
+      - type: bind
+        source: ./docker/php_nginx/conf.d
+        target: /etc/nginx/conf.d
+        read_only: true
+    working_dir: /var/www
+
+
+
+networks: # Виртуальная сеть для объединения контейнеров
+  discord-bot-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.220.0/28
