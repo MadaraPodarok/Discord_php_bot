@@ -14,8 +14,6 @@
     "team-reflex/discord-php": "^7.3",
     "vlucas/phpdotenv": "^5.5",
     "ext-json": "*",
-    "ext-event": "*",
-    "ext-uv": "*",
     "ext-zlib": "*",
     "ext-mbstring": "*",
     "ext-sodium": "*"
