@@ -22,17 +22,17 @@ $ds->on('init', static function (Discord $ds) {
     $ds->on(Event::MESSAGE_CREATE, static function (Message $message, Discord $ds) {
         // ... handle message sent
     });
-    $ds->on(Event::VOICE_STATE_UPDATE, static function (VoiceStateUpdate $vSUpdate, Discord $ds) {
-        print_r('channelWorkID: ' . $vSUpdate->channel_id);
-        # User и войс канал куда заходит чел IT
-        if ($vSUpdate->user->id === '368107244199346176' && $vSUpdate->channel_id === '1034416760415342684') {
-            $builder = MessageBuilder::new();
-            $channel = $vSUpdate->channel;
-            # Чат куда приходит письмо
-            $channel->id = '274886275176202240';
-            $channel->sendMessage($builder->setContent('<@368107244199346176> bruh'));
-        }
-    });
-});
 
+});
+$ds->on(Event::VOICE_STATE_UPDATE, static function (VoiceStateUpdate $vSUpdate, Discord $ds) {
+    print_r('channelWorkID: ' . $vSUpdate->channel_id);
+    # User и войс канал куда заходит чел IT
+    if ($vSUpdate->user->id === '368107244199346176' && $vSUpdate->channel_id === '1034416760415342684') {
+        $builder = MessageBuilder::new();
+        $channel = $vSUpdate->channel;
+        # Чат куда приходит письмо
+        $channel->id = '274886275176202240';
+        $channel->sendMessage($builder->setContent('<@368107244199346176> bruh'));
+    }
+});
 $ds->run();
