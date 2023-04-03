@@ -18,8 +18,10 @@
     "ext-mbstring": "*",
     "ext-sodium": "*"
   },
-  "autoload": {
-    "Config": "config"
+  "autoload-dev": {
+    "psr-4": {
+      "Config\\": "config"
+    }
   },
   "require-dev": {
     "roave/security-advisories": "dev-latest"
