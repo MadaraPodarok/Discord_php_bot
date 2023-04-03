@@ -33,23 +33,26 @@ $ds->on('ready', function (Discord $ds) {
         var_dump(
             [
                 'channelWorkID: ' => $vSUpdate->channel_id,
-                '!is_null?' => !is_null($vSUpdate->channel_id)
+                '!is_null?' => !is_null($vSUpdate->channel_id),
+                'userID' => $vSUpdate->user->id
             ]
         );
         $userID = $vSUpdate->user->id;
 
         $role = Roles::roleByUserID($userID);
-        $name = RoleUser::from($userID);
 
-
-
+        if ($userID === '386154772568473610') {
+            $name = 'Damir';
+        } else {
+            $name = 'Tester';
+        }
         # User и войс канал куда заходит чел IT
         if ($vSUpdate->user->id === '368107244199346176' && !is_null($vSUpdate->channel_id) && $vSUpdate->channel_id !== '1034416760415342684') {
             $builder = MessageBuilder::new();
             $channel = $vSUpdate->channel;
             # Чат куда приходит письмо
             $channel->id = '274886275176202240';
-            $url = RandomGif::url($name->name);
+            $url = RandomGif::url($name);
             $channel->sendMessage($builder->setContent($role . $url));
         }
     });
