@@ -18,6 +18,9 @@
     "ext-mbstring": "*",
     "ext-sodium": "*"
   },
+  "autoload": {
+    "Config": "config"
+  },
   "require-dev": {
     "roave/security-advisories": "dev-latest"
   }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Enum;
+namespace Config\Enum;
 
 enum RoleUser: string
 {

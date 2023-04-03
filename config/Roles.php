@@ -1,5 +1,7 @@
 <?php
 
+namespace Config;
+
 class Roles
 {
     public static function roleByUserID(string $userID): string
