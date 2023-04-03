@@ -1,15 +1,38 @@
-<html>
-  <head>
-    <title>PHP Test</title>
-  </head>
-  <body>
-    <?php echo '<p>Hello World</p>'; ?> 
+<?php
 
-    <!--
-    This script places a badge on your repl's full-browser view back to your repl's cover
-    page. Try various colors for the theme: dark, light, red, orange, yellow, lime, green,
-    teal, blue, blurple, magenta, pink!
-    -->
-    <script src="https://replit.com/public/js/replit-badge.js" theme="blue" defer></script> 
-  </body>
-</html>
+require __DIR__ . '/vendor/autoload.php';
+
+
+use Discord\Discord;
+use Discord\WebSockets\Event;
+use Discord\WebSockets\Intents;
+use Discord\Parts\User\Member;
+use Discord\Parts\Channel\Message;
+
+$ds = new Discord([
+    'token' => $_ENV['DISCORD_TOKEN'],
+    // Токен, который мы сгенерировали ранее
+    'intents' => Intents::getDefaultIntents() | Intents::GUILD_MEMBERS,
+    // Понадобится для отслеживания событий участников
+]);
+
+$ds->on('ready', static function ($ds) {
+    // Тут продолжим писать код
+
+});
+
+$ds->on(Event::MESSAGE_CREATE, static function (Message $msg, Discord $ds) {
+    // Тут будем обрабатывать входящие
+    if ($msg->content === '/test') {
+        $msg->reply('Привет, ' . $msg->author->username);
+    } elseif (str_contains($msg->content, 'админ лох')) {
+        $msg->member->ban(1, 'reason');
+    }
+});
+
+$ds->on(Event::GUILD_MEMBER_ADD, static function (Member $member, Discord $ds) {
+    // Тут продолжим писать код
+
+});
+
+$ds->run();

@@ -1,0 +1,20 @@
+{
+  "name": "discord/discord_php_bot",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "sasha",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+    "php": "^7.4|^8.1",
+    "team-reflex/discord-php": "^7.3"
+  }
+  ,
+  "require-dev": {
+    "roave/security-advisories": "dev-latest"
+  }
+}
