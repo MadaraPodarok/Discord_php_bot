@@ -3,10 +3,14 @@
 namespace Config;
 
 use Discord\Builders\MessageBuilder;
+use Discord\Http\Exceptions\NoPermissionsException;
 use Discord\Parts\WebSockets\VoiceStateUpdate;
 
 class Message
 {
+    /**
+     * @throws NoPermissionsException
+     */
     public static function send(string $userID, ?VoiceStateUpdate $voiceStateUpdate = null): void
     {
         if (is_null($voiceStateUpdate)) {
