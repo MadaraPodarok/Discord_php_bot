@@ -2,7 +2,6 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-use Config\Enum\RoleUser;
 use Config\RandomGif;
 use Config\Roles;
 use Discord\Builders\MessageBuilder;
@@ -29,31 +28,27 @@ $ds->on('ready', function (Discord $ds) {
 //        echo "{$message->author->username}: {$message->content}", PHP_EOL;
 //        // Note: MESSAGE_CONTENT intent must be enabled to get the content if the bot is not mentioned/DMed.
 //    });
-    $ds->on(Event::VOICE_STATE_UPDATE, static function (VoiceStateUpdate $vSUpdate, Discord $ds) {
+    $ds->on(Event::VOICE_STATE_UPDATE, static function (VoiceStateUpdate $vSUpdate, Discord $ds, $oldState) {
         var_dump(
             [
                 'channelWorkID: ' => $vSUpdate->channel_id,
-                '!is_null?' => !is_null($vSUpdate->channel_id),
                 'userID' => $vSUpdate->user->id
             ]
         );
         $userID = $vSUpdate->user->id;
 
         $role = Roles::roleByUserID($userID);
+        $name = Roles::nameByUserID($userID);
 
-        if ($userID === '386154772568473610') {
-            $name = 'Damir';
-        } else {
-            $name = 'Tester';
-        }
         # User и войс канал куда заходит чел IT
-        if ($vSUpdate->user->id === '368107244199346176' && !is_null($vSUpdate->channel_id) && $vSUpdate->channel_id !== '1034416760415342684') {
+        # для тестера $vSUpdate->user->id === '368107244199346176' &&
+        if (!is_null($vSUpdate->channel_id) && $vSUpdate->channel_id !== '1034416760415342684') {
             $builder = MessageBuilder::new();
             $channel = $vSUpdate->channel;
             # Чат куда приходит письмо
             $channel->id = '274886275176202240';
             $url = RandomGif::url($name);
-            $channel->sendMessage($builder->setContent($role . $url));
+            $channel->sendMessage($builder->setContent($role . ' ' . $url));
         }
     });
 });
