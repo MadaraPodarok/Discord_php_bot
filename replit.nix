@@ -1,6 +1,6 @@
 { pkgs }: {
   deps = [
-    pkgs.php81
-    pkgs.php81Packages.composer
+    pkgs.php74
+    pkgs.php74Packages.composer
   ];
 }
