@@ -4,72 +4,96 @@ namespace Config;
 
 class RandomGif
 {
-    public static function url(string $name): string
+    public static function url(string $name, int $action): string
     {
         switch ($name) {
             case 'Damir':
-                $randomUrl = random_int(1, 2);
-                switch ($randomUrl) {
+                switch ($action) {
+                    case 0:
+                        return 'https://cdn.discordapp.com/attachments/1092737067252990002/1093156213434359888/farcry3.gif';
                     case 1:
-                        return 'https://giphy.com/gifs/tlou-stariylululul-NCMbaQhkPVXfhlcnbI';
+                        $listUrl = [
+                            'https://cdn.discordapp.com/attachments/1092737067252990002/1093155320370577459/a3d747a038e5af0e.gif',
+                            'https://cdn.discordapp.com/attachments/1092737067252990002/1093155463803174942/wow-homelander.gif',
+                            'https://cdn.discordapp.com/attachments/1092737067252990002/1093156109751160932/homelander-the-boys_1.gif',
+                        ];
+                        return $listUrl[array_rand($listUrl)];
                     case 2:
-                        return 'https://giphy.com/gifs/mads-laOHbXBwEc1aa3SFP4';
-                    case 3:
-                        return 'https://tenor.com/ru/view/wow-homelander-the-boys-super-gif-19837363';
-                    case 4:
-                        return 'https://tenor.com/ru/view/homelander-the-boys-happy-sad-smile-gif-18767435';
-                    case 5:
-                        return 'https://tenor.com/ru/view/farcry3-gif-20987386';
+                        return 'https://cdn.discordapp.com/attachments/1092737067252990002/1093155187738284102/tlou.gif';
                 }
                 break;
             case 'Chingiz':
-                $randomUrl = random_int(1, 2);
-                switch ($randomUrl) {
+            case 'Alex':
+                switch ($action) {
+                    case 0:
+                        return 'https://cdn.discordapp.com/attachments/1092737067252990002/1093159442826145842/the-boys-the-deep.gif';
                     case 1:
-                        return 'https://tenor.com/ru/view/fifa-fifa-time-perla-jipi-gif-23689416';
+                        return 'https://cdn.discordapp.com/attachments/1092737067252990002/1093149053128294470/fifa-fifa-time.gif';
                     case 2:
-                        return 'test';
+                        return 'https://cdn.discordapp.com/attachments/1092737067252990002/1093159154853609623/socialka-papich.gif';
                 }
                 break;
             case 'Egor':
-                $randomUrl = random_int(1, 2);
-                switch ($randomUrl) {
+                switch ($action) {
+                    case 0:
+                        return 'https://cdn.discordapp.com/attachments/1092737067252990002/1093149361493528587/blowjob-the-deep.gif';
                     case 1:
-                        return 'https://tenor.com/ru/view/blowjob-the-deep-the-boys-suck-it-bj-gif-25704616';
+                        $listUrl = [
+                            'https://cdn.discordapp.com/attachments/1092737067252990002/1093155320370577459/a3d747a038e5af0e.gif',
+                            'https://cdn.discordapp.com/attachments/1092737067252990002/1093155463803174942/wow-homelander.gif',
+                            'https://cdn.discordapp.com/attachments/1092737067252990002/1093156109751160932/homelander-the-boys_1.gif',
+                        ];
+                        return $listUrl[array_rand($listUrl)];
                     case 2:
-                        return 'https://tenor.com/ru/view/dota-players-be-like-gif-9920681';
+                        return 'https://cdn.discordapp.com/attachments/1092737067252990002/1093149473124913192/dota-players.gif';
                 }
                 break;
             case 'Anastasiya':
-                $randomUrl = random_int(1, 2);
-                switch ($randomUrl) {
+                switch ($action) {
+                    case 0:
+                        return 'https://cdn.discordapp.com/attachments/1092737067252990002/1093158856265310318/the-deep-the-boys.gif';
                     case 1:
-                        return 'https://tenor.com/ru/view/%D0%B3%D0%B5%D0%BD%D1%88%D0%B8%D0%BD-%D1%83%D0%B4%D0%B0%D0%BB%D1%8F%D1%8E-%D0%BF%D0%B0%D0%BF%D0%B8%D1%87-%D1%80%D0%BE%D0%BC%D1%87%D0%B8%D0%BA-uninstall-gif-22735226';
+                        return 'https://cdn.discordapp.com/attachments/1092737067252990002/1093150844330967060/-.gif';
                     case 2:
-                        return 'test';
+                        return 'https://cdn.discordapp.com/attachments/1092737067252990002/1093149848150224976/dota2-egor.gif';
                 }
                 break;
             case 'Timur':
-                $randomUrl = random_int(1, 2);
-                switch ($randomUrl) {
+                switch ($action) {
                     case 1:
-                        return 'https://tenor.com/ru/view/the-boys-jensen-ackles-soldier-boy-gay-couple-the-boys-season3-gif-26030215';
+                        return 'https://cdn.discordapp.com/attachments/1092737067252990002/1093150058561679380/the-boys-jensen-ackles.gif';
                     case 2:
-                        return 'test';
+                        return 'https://cdn.discordapp.com/attachments/1092737067252990002/1093159726759563345/oof-homelander.gif';
                 }
                 break;
             case 'Askar':
-                $randomUrl = random_int(1, 2);
-                switch ($randomUrl) {
+                switch ($action) {
+                    case 0:
+                        return 'https://cdn.discordapp.com/attachments/1092737067252990002/1093150252086866000/aronanto-homelander.gif';
                     case 1:
-                        return 'https://tenor.com/ru/view/aronanto-homelander-gif-23374827';
+                        $listUrl = [
+                            'https://cdn.discordapp.com/attachments/1092737067252990002/1093150404981837844/the-deep-the-boys.gif',
+                            'https://cdn.discordapp.com/attachments/1092737067252990002/1093150608736911441/tobey-maguire-peter-parker.gif',
+                        ];
+                        return $listUrl[array_rand($listUrl)];
                     case 2:
-                        return 'test';
+                        return '';
                 }
                 break;
             case 'CS Team':
             case 'Dota Team':
-                return 'https://tenor.com/view/the-boys-gif-18544958';
+            switch ($action) {
+                case 0:
+                    return 'https://cdn.discordapp.com/attachments/1092737067252990002/1093156246401597510/sbor.gif';
+                case 1:
+                    $listUrl = [
+                        'https://cdn.discordapp.com/attachments/1092737067252990002/1093157258730410075/the-boys.gif',
+                    ];
+                    return $listUrl[array_rand($listUrl)];
+                case 2:
+                    return 'https://cdn.discordapp.com/attachments/1092737067252990002/1093157125347356722/besplatno2.gif';
+            }
+            break;
             case 'Tester':
             default:
                 $randomUrl = random_int(1, 2);
