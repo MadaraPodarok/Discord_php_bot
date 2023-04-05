@@ -7,7 +7,6 @@ use Discord\Discord;
 use Discord\Exceptions\FileNotFoundException;
 use Discord\Http\Exceptions\NoPermissionsException;
 use Discord\Parts\Channel\Channel;
-use Discord\Parts\Embed\Embed;
 
 class Message
 {

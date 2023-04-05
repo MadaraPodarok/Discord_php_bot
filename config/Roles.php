@@ -2,6 +2,8 @@
 
 namespace Config;
 
+use Log\Log;
+
 class Roles
 {
     public static function roleByUserID(string $userID): string
@@ -55,6 +57,7 @@ class Roles
             case '368107244199346176';
                 return "Tester";
         }
-        throw new \RuntimeException('Чей userID? ' . $userID);
+        Log::sendLog('error', 'Чей userID? ' . $userID);
+        return 'Tester';
     }
 }

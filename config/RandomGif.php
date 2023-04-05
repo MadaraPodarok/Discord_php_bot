@@ -2,7 +2,7 @@
 
 namespace Config;
 
-use RuntimeException;
+use Log\Log;
 
 class RandomGif
 {
@@ -60,7 +60,8 @@ class RandomGif
                 }
                 break;
         }
-        throw new RuntimeException('Кого то забыли? ' . $name);
+        Log::sendLog('error', 'Кого то забыли? ' . $name);
+        return 'error';
     }
 
     private static function nameDamir(array $options): string
@@ -91,7 +92,8 @@ class RandomGif
         if (str_contains($game, 'War Thunder')) {
             return self::SMOTRU_NA_PIDOROV;
         }
-        throw new RuntimeException('Дамир куда то зашел? , ' . 'action: ' . $action . ' или game: ' . $game);
+        Log::sendLog('error', 'Дамир куда то зашел?', ['action' => $action, 'game' => $game]);
+        return 'errorDamir';
     }
 
     private static function nameChingiz(array $options): string
@@ -115,7 +117,8 @@ class RandomGif
         if (str_contains($game, 'Counter-Strike')) {
             return self::PLUS_SOCIAL_CREDIT;
         }
-        throw new RuntimeException('Чингиз куда то зашел? , ' . 'action: ' . $action . ' или game: ' . $game);
+        Log::sendLog('error', 'Чингиз куда то зашел?', ['action' => $action, 'game' => $game]);
+        return 'errorChingiz';
     }
 
     private static function nameEgor(array $options): string
@@ -141,7 +144,8 @@ class RandomGif
         if (str_contains($game, 'Dota 2')) {
             return self::IGRAU_V_DOTY_NE_MESHAI;
         }
-        throw new RuntimeException('Егор куда то зашел? , ' . 'action: ' . $action . ' или game: ' . $game);
+        Log::sendLog('error', 'Егор куда то зашел?', ['action' => $action, 'game' => $game]);
+        return 'errorEgor';
     }
 
     private static function nameAnastasiya(array $options): string
@@ -165,7 +169,8 @@ class RandomGif
         if (str_contains($game, 'Dota 2')) {
             return self::EGOR_GO_DOTKY;
         }
-        throw new RuntimeException('Анастасия куда то зашла? , ' . 'action: ' . $action . ' или game: ' . $game);
+        Log::sendLog('error', 'Анастасия куда то зашла?', ['action' => $action, 'game' => $game]);
+        return 'errorAnastasiya';
     }
 
     private static function nameTimur(array $options): string
@@ -189,7 +194,8 @@ class RandomGif
         if (str_contains($game, 'The Sims')) {
             return self::OOF_HOMELANDER;
         }
-        throw new RuntimeException('Тимур куда то зашел? , ' . 'action: ' . $action . ' или game: ' . $game);
+        Log::sendLog('error', 'Тимур куда то зашел?', ['action' => $action, 'game' => $game]);
+        return 'errorTimur';
     }
 
     private static function nameAskar(array $options): string
@@ -214,6 +220,7 @@ class RandomGif
         if (str_contains($game, 'Dota 2')) {
             return self::IGRAU_V_DOTY_NE_MESHAI;
         }
-        throw new RuntimeException('Аскар куда то зашел? , ' . 'action: ' . $action . ' или game: ' . $game);
+        Log::sendLog('error', 'Аскар куда то зашел?', ['action' => $action, 'game' => $game]);
+        return 'errorAskar';
     }
 }

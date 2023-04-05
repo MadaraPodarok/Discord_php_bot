@@ -5,14 +5,14 @@
   "license": "proprietary",
   "authors": [
     {
-      "name": "sasha",
+      "name": "Alex",
       "email": "email@example.com"
     }
   ],
   "require": {
-    "php": "^7.4|^8.1",
+    "php": "^7.4",
     "team-reflex/discord-php": "^7.3",
-    "vlucas/phpdotenv": "^5.5",
+    "vlucas/phpdotenv": "^v5.5.0",
     "ext-json": "*",
     "ext-zlib": "*",
     "ext-mbstring": "*",
