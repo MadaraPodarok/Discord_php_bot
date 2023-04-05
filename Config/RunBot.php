@@ -41,12 +41,12 @@ class RunBot
             echo "Bot is ready!", PHP_EOL;
 
 
-            /** @var Activity $activity */
-            $activity = $ds->factory(Activity::class, [
-                'name' => '!help',
-                'type' => Activity::TYPE_LISTENING
-            ]);
-            $ds->updatePresence($activity);
+//            /** @var Activity $activity */
+//            $activity = $ds->factory(Activity::class, [
+//                'name' => '!help',
+//                'type' => Activity::TYPE_LISTENING
+//            ]);
+//            $ds->updatePresence($activity);
 
             $ds->on(Event::GUILD_MEMBER_UPDATE, static function (Member $member, Discord $discord, ?Member $oldMember) {
                 var_dump([
@@ -55,6 +55,7 @@ class RunBot
             });
 
             $ds->on(Event::PRESENCE_UPDATE, static function (PresenceUpdate $presence, Discord $discord) {
+
                 $activityGameName = $presence->game->name;
 
                 $userID = $presence->member->id;
@@ -81,6 +82,7 @@ class RunBot
             $ds->on(
                 Event::VOICE_STATE_UPDATE,
                 static function (VoiceStateUpdate $newVsUpdate, Discord $ds, VoiceStateUpdate $oldVsUpdate = null) {
+
                     $newChannelID = $newVsUpdate->channel_id ?? null;
                     $oldChannelID = $oldVsUpdate->channel_id ?? null;
                     $userID = $newVsUpdate->member->id;

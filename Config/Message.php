@@ -19,6 +19,10 @@ class Message
      */
     public static function send(string $userID, Discord $discord, array $options): void
     {
+        if ($discord->user->bot) {
+            return;
+        }
+
         if (getenv('APP_ENV') === 'production') {
             $channelMessage = self::channelMessageChat;
         } else {
