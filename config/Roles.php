@@ -53,8 +53,8 @@ class Roles
             case '258640185246351360':
                 return 'Sergei';
             case '368107244199346176';
-            default:
                 return "Tester";
         }
+        throw new \RuntimeException('Чей userID? ' . $userID);
     }
 }

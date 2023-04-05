@@ -6,6 +6,7 @@ use Discord\Builders\MessageBuilder;
 use Discord\Discord;
 use Discord\Http\Exceptions\NoPermissionsException;
 use Discord\Parts\Channel\Channel;
+use Discord\Parts\Embed\Embed;
 
 class Message
 {
@@ -31,16 +32,18 @@ class Message
         $url = RandomGif::url($name, $options);
 
         $builder = MessageBuilder::new();
+
+
+//        $embed = new Embed($discord);
+//        $embed->setImage($url);
+//        $embed->setURL($url);
+//        $embed->setTitle($url);
+
         $channel->sendMessage(
             $builder
                 ->setContent($role . PHP_EOL)
-                ->addEmbed([
-                    [
-                        "image" => [
-                            "url" => $url
-                        ],
-                    ]
-                ])
+//                ->addEmbed($embed)
+                ->addFile(__DIR__ . '/../Gif/tlou.gif')
         );
     }
 }

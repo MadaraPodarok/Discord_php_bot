@@ -4,14 +4,12 @@ namespace Config;
 
 use Discord\Discord;
 use Discord\Exceptions\IntentException;
-use Discord\Parts\Channel\Channel;
 use Discord\Parts\Channel\StageInstance;
 use Discord\Parts\User\Activity;
 use Discord\Parts\User\Member;
 use Discord\Parts\WebSockets\PresenceUpdate;
 use Discord\Parts\WebSockets\VoiceServerUpdate;
 use Discord\Parts\WebSockets\VoiceStateUpdate;
-use Discord\Voice\VoiceClient;
 use Discord\WebSockets\Event;
 use Discord\WebSockets\Intents;
 use React\EventLoop\Loop;
@@ -60,7 +58,6 @@ class RunBot
                 $activityGameName = $presence->game->name;
 
                 $userID = $presence->member->id;
-
                 Message::send($userID, $discord, [
                     'game' => $activityGameName,
                 ]);
