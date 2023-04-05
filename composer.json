@@ -20,7 +20,8 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Config\\": "config"
+      "Config\\": "Config",
+      "Log\\": "Log"
     }
   },
   "require-dev": {
