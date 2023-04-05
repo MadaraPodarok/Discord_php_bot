@@ -6,31 +6,34 @@ use RuntimeException;
 
 class RandomGif
 {
-    private const DAMIR_ZASHEL_V_TLOU_GIF = 'https://cdn.discordapp.com/attachments/1092737067252990002/1093155187738284102/tlou.gif';
-    private const KOGO_TI_VIBERESH_GIF = 'https://cdn.discordapp.com/attachments/1092737067252990002/1093156213434359888/farcry3.gif';
-    private const YA_VERNULSYA_V_STROI_GIF = 'https://cdn.discordapp.com/attachments/1092737067252990002/1093155320370577459/a3d747a038e5af0e.gif';
-    private const WOW_HOMELANDER = 'https://cdn.discordapp.com/attachments/1092737067252990002/1093155463803174942/wow-homelander.gif';
-    private const NE_PON_HOMELANDER = 'https://cdn.discordapp.com/attachments/1092737067252990002/1093156109751160932/homelander-the-boys_1.gif';
-    private const DUMAET_THE_DEEP = 'https://cdn.discordapp.com/attachments/1092737067252990002/1093159442826145842/the-boys-the-deep.gif';
-    private const FIFA_TIME = 'https://cdn.discordapp.com/attachments/1092737067252990002/1093149053128294470/fifa-fifa-time.gif';
-    private const PLUS_SOCIAL_CREDIT = 'https://cdn.discordapp.com/attachments/1092737067252990002/1093159154853609623/socialka-papich.gif';
-    private const SOSAT_THE_DEEP = 'https://cdn.discordapp.com/attachments/1092737067252990002/1093149361493528587/blowjob-the-deep.gif';
-    private const IGRAU_V_DOTY_NE_MESHAI = 'https://cdn.discordapp.com/attachments/1092737067252990002/1093149473124913192/dota-players.gif';
-    private const UDALYAU_GENSHIN = 'https://cdn.discordapp.com/attachments/1092737067252990002/1093150844330967060/-.gif';
-    private const EGOR_GO_DOTKY = 'https://cdn.discordapp.com/attachments/1092737067252990002/1093149848150224976/dota2-egor.gif';
-    private const SMOTRU_NA_PIDOROV = 'https://cdn.discordapp.com/attachments/1092737067252990002/1093150058561679380/the-boys-jensen-ackles.gif';
-    private const OOF_HOMELANDER = 'https://cdn.discordapp.com/attachments/1092737067252990002/1093159726759563345/oof-homelander.gif';
-    private const POLEGCHE_HOMELANDER = 'https://cdn.discordapp.com/attachments/1092737067252990002/1093150252086866000/aronanto-homelander.gif';
-    private const YA_VERNULSYA_THE_DEEP = 'https://cdn.discordapp.com/attachments/1092737067252990002/1093150404981837844/the-deep-the-boys.gif';
-    private const YA_PROSHAU_TEBYA = 'https://cdn.discordapp.com/attachments/1092737067252990002/1093150608736911441/tobey-maguire-peter-parker.gif';
-    private const DAYNI_OBSHII_SBOR = 'https://cdn.discordapp.com/attachments/1092737067252990002/1093156246401597510/sbor.gif';
-    private const KOMANDA_V_SBORE = 'https://cdn.discordapp.com/attachments/1092737067252990002/1093157258730410075/the-boys.gif';
-    private const FREE_1 = 'https://cdn.discordapp.com/attachments/1092737067252990002/1093157125347356722/besplatno2.gif';
-    private const USHEL_SRAT = 'https://cdn.discordapp.com/attachments/1092737067252990002/1093250917865897996/8ffc0c2b41e8f8cc.gif';
-    private const EGOR_AND_CHINGIZ = 'https://cdn.discordapp.com/attachments/1092737067252990002/1093250802082123928/EGOR_CHINGIZ.gif';
+    private const DAMIR_ZASHEL_V_TLOU_GIF = __DIR__ . '/../Gif/DAMIR_ZASHEL_V_TLOU_GIF.gif';
+    private const KOGO_TI_VIBERESH_GIF = __DIR__ . '/../Gif/KOGO_TI_VIBERESH_GIF.gif';
+    private const YA_VERNULSYA_V_STROI_GIF = __DIR__ . '/../Gif/YA_VERNULSYA_V_STROI_GIF.gif';
+    private const WOW_HOMELANDER = __DIR__ . '/../Gif/WOW_HOMELANDER.gif';
+    private const NE_PON_HOMELANDER = __DIR__ . '/../Gif/NE_PON_HOMELANDER.gif';
+
+    private const DUMAET_THE_DEEP = __DIR__ . '/../Gif/DUMAET_THE_DEEP.gif';
+    private const FIFA_TIME = __DIR__ . '/../Gif/FIFA_TIME.gif';
+    private const PLUS_SOCIAL_CREDIT = __DIR__ . '/../Gif/PLUS_SOCIAL_CREDIT.gif';
+    private const SOSAT_THE_DEEP = __DIR__ . '/../Gif/SOSAT_THE_DEEP.gif';
+    private const IGRAU_V_DOTY_NE_MESHAI = __DIR__ . '/../Gif/IGRAU_V_DOTY_NE_MESHAI.gif';
+
+    private const UDALYAU_GENSHIN = __DIR__ . '/../Gif/UDALYAU_GENSHIN.gif';
+    private const EGOR_GO_DOTKY = __DIR__ . '/../Gif/EGOR_GO_DOTKY.gif';
+    private const SMOTRU_NA_PIDOROV = __DIR__ . '/../Gif/SMOTRU_NA_PIDOROV.gif';
+    private const OOF_HOMELANDER = __DIR__ . '/../Gif/OOF_HOMELANDER.gif';
+    private const POLEGCHE_HOMELANDER = __DIR__ . '/../Gif/POLEGCHE_HOMELANDER.gif';
+
+    private const YA_VERNULSYA_THE_DEEP = __DIR__ . '/../Gif/YA_VERNULSYA_THE_DEEP.gif';
+    private const YA_PROSHAU_TEBYA = __DIR__ . '/../Gif/YA_PROSHAU_TEBYA.gif';
+    private const DAYNI_OBSHII_SBOR = __DIR__ . '/../Gif/DAYNI_OBSHII_SBOR.gif';
+    private const KOMANDA_V_SBORE = __DIR__ . '/../Gif/KOMANDA_V_SBORE.gif';
+    private const FREE_1 = __DIR__ . '/../Gif/FREE_1.gif';
+    private const USHEL_SRAT = __DIR__ . '/../Gif/USHEL_SRAT.gif';
+    private const EGOR_AND_CHINGIZ = __DIR__ . '/../Gif/EGOR_AND_CHINGIZ.gif';
 
 
-    public static function url(string $name, array $options): string
+    public static function gif(string $name, array $options): string
     {
         switch ($name) {
             case 'Damir':

@@ -4,6 +4,7 @@ namespace Config;
 
 use Discord\Builders\MessageBuilder;
 use Discord\Discord;
+use Discord\Exceptions\FileNotFoundException;
 use Discord\Http\Exceptions\NoPermissionsException;
 use Discord\Parts\Channel\Channel;
 use Discord\Parts\Embed\Embed;
@@ -15,6 +16,7 @@ class Message
 
     /**
      * @throws NoPermissionsException
+     * @throws FileNotFoundException
      */
     public static function send(string $userID, Discord $discord, array $options): void
     {
@@ -29,21 +31,14 @@ class Message
 
         $role = Roles::roleByUserID($userID);
         $name = Roles::nameByUserID($userID);
-        $url = RandomGif::url($name, $options);
+        $gif = RandomGif::gif($name, $options);
 
         $builder = MessageBuilder::new();
-
-
-//        $embed = new Embed($discord);
-//        $embed->setImage($url);
-//        $embed->setURL($url);
-//        $embed->setTitle($url);
 
         $channel->sendMessage(
             $builder
                 ->setContent($role . PHP_EOL)
-//                ->addEmbed($embed)
-                ->addFile(__DIR__ . '/../Gif/tlou.gif')
+                ->addFile($gif)
         );
     }
 }
