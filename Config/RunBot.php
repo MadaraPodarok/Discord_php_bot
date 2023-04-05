@@ -93,27 +93,28 @@ class RunBot
                     ]);
 
                     if (is_null($oldChannelID) && !is_null($newChannelID)) {
-                        # Если user заходит/выходит в IT - ничего не делаем
-                        if ($newChannelID === self::voiceIT) {
-                            echo $userID . ' зашел в IT', PHP_EOL;
-                            return;
-                        }
+//                        # Если user заходит/выходит в IT - ничего не делаем
+//                        if ($newChannelID === self::voiceIT) {
+//                            echo $userID . ' зашел в IT', PHP_EOL;
+//                            return;
+//                        }
                         echo 'Зашел', PHP_EOL;
                         Message::send($userID, $ds, ['action' => 1]);
                     } elseif (is_null($newChannelID)) {
                         echo 'Вышел', PHP_EOL;
                         Message::send($userID, $ds, ['action' => 0]);
-                    } elseif ($oldChannelID && $newChannelID) {
-                        echo 'Перешел с другого канала', PHP_EOL;
-                        # Если user заходит/выходит в IT - ничего не делаем
-                        if ($newChannelID === self::voiceIT) {
-                            echo $userID . ' зашел в IT', PHP_EOL;
-                            return;
-                        }
-                        Message::send($userID, $ds, ['action' => 1]);
-                        $newVsUpdate->channel_id = null;
-                        $oldVsUpdate->channel_id = null;
                     }
+//                    elseif ($oldChannelID && $newChannelID) {
+//                        echo 'Перешел с другого канала', PHP_EOL;
+//                        # Если user заходит/выходит в IT - ничего не делаем
+//                        if ($newChannelID === self::voiceIT) {
+//                            echo $userID . ' зашел в IT', PHP_EOL;
+//                            return;
+//                        }
+//                        Message::send($userID, $ds, ['action' => 1]);
+//                        $newVsUpdate->channel_id = null;
+//                        $oldVsUpdate->channel_id = null;
+//                    }
                 }
             );
         });
