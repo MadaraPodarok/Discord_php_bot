@@ -48,7 +48,6 @@ class RandomGif
             case 'Askar':
                 return self::nameAskar($options);
             case 'Tester':
-            default:
                 $randomUrl = random_int(1, 2);
                 switch ($randomUrl) {
                     case 1:
@@ -58,7 +57,7 @@ class RandomGif
                 }
                 break;
         }
-        return 'tester1';
+        throw new RuntimeException('Кого то забыли? ' . $name);
     }
 
     private static function nameDamir(array $options): string

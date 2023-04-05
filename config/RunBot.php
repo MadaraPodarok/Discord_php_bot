@@ -62,7 +62,6 @@ class RunBot
                 $userID = $presence->member->id;
 
                 Message::send($userID, $discord, [
-                    'action' => 2,
                     'game' => $activityGameName,
                 ]);
             });
@@ -87,12 +86,13 @@ class RunBot
                     $oldChannelID = $oldVsUpdate->channel_id ?? null;
                     $userID = $newVsUpdate->member->id;
 
+                    # Если user заходит/выходит в IT - ничего не делаем
+//                    if ($newChannelID === self::voiceIT) {
+//                        echo $userID . ' зашел в IT', PHP_EOL;
+//                        return;
+//                    }
+
                     if (is_null($oldChannelID) && !is_null($newChannelID)) {
-                        # Если user заходит/выходит в IT - ничего не делаем
-                        if ($newChannelID === self::voiceIT) {
-                            echo 'User зашел в IT', PHP_EOL;
-                            return;
-                        }
                         echo 'Зашел', PHP_EOL;
                         Message::send($userID, $ds, ['action' => 1]);
                     } elseif (is_null($newChannelID)) {

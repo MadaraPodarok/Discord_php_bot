@@ -31,6 +31,14 @@ class Message
         $url = RandomGif::url($name, $options);
 
         $builder = MessageBuilder::new();
-        $channel->sendMessage($builder->setContent($role . PHP_EOL . $url));
+        $channel->sendMessage(
+            $builder
+                ->setContent($role . PHP_EOL)
+            ->addEmbed([
+                "image" => [
+                    "url" => $url
+                ],
+            ])
+        );
     }
 }
