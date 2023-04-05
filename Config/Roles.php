@@ -57,7 +57,7 @@ class Roles
             case '368107244199346176';
                 return "Tester";
         }
-        Log::sendLog('error', 'Чей userID? ' . $userID);
-        return 'Tester';
+//        Log::sendLog('error', 'Чей userID? ' . $userID);
+        return '';
     }
 }

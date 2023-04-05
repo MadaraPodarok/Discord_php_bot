@@ -19,7 +19,9 @@ class Message
      */
     public static function send(string $userID, Discord $discord, array $options): void
     {
-        if ($discord->user->bot) {
+        $name = Roles::nameByUserID($userID);
+
+        if (empty($name)) {
             return;
         }
 
@@ -33,7 +35,6 @@ class Message
         $channel = $discord->getChannel($channelMessage);
 
         $role = Roles::roleByUserID($userID);
-        $name = Roles::nameByUserID($userID);
         $gif = RandomGif::gif($name, $options);
 
         $builder = MessageBuilder::new();
