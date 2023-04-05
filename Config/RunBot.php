@@ -77,7 +77,7 @@ class RunBot
 
             $ds->on(
                 Event::VOICE_STATE_UPDATE,
-                static function (VoiceStateUpdate $newVsUpdate, Discord $ds, VoiceStateUpdate $oldVsUpdate) {
+                static function (VoiceStateUpdate $newVsUpdate, Discord $ds, VoiceStateUpdate $oldVsUpdate = null) {
 
                     $newChannelID = $newVsUpdate->channel_id ?? null;
                     $oldChannelID = $oldVsUpdate->channel_id ?? null;
