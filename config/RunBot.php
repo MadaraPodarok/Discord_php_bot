@@ -61,9 +61,10 @@ class RunBot
 
                 $userID = $presence->member->id;
 
-                if (str_contains($activityGameName, 'The Last Of Us')) {
-                    Message::send($userID, $discord, 2);
-                }
+                Message::send($userID, $discord, [
+                    'action' => 2,
+                    'game' => $activityGameName,
+                ]);
             });
 
             $ds->on(Event::STAGE_INSTANCE_UPDATE, function (StageInstance $stageInstance, Discord $discord, ?StageInstance $oldStageInstance) {
@@ -93,10 +94,10 @@ class RunBot
                             return;
                         }
                         echo 'Зашел', PHP_EOL;
-                        Message::send($userID, $ds, 1);
+                        Message::send($userID, $ds, ['action' => 1]);
                     } elseif (is_null($newChannelID)) {
                         echo 'Вышел', PHP_EOL;
-                        Message::send($userID, $ds, 0);
+                        Message::send($userID, $ds, ['action' => 0]);
                     }
                 }
             );

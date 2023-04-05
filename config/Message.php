@@ -15,7 +15,7 @@ class Message
     /**
      * @throws NoPermissionsException
      */
-    public static function send(string $userID, Discord $discord, int $action): void
+    public static function send(string $userID, Discord $discord, array $options): void
     {
         if (getenv('APP_ENV') === 'production') {
             $channelMessage = self::channelMessageChat;
@@ -28,7 +28,7 @@ class Message
 
         $role = Roles::roleByUserID($userID);
         $name = Roles::nameByUserID($userID);
-        $url = RandomGif::url($name, $action);
+        $url = RandomGif::url($name, $options);
 
         $builder = MessageBuilder::new();
         $channel->sendMessage($builder->setContent($role . PHP_EOL . $url));
