@@ -28,7 +28,8 @@ class RunBot
         $this->discord = new Discord([
             'token' => $_ENV['DISCORD_TOKEN'],
             'loadAllMembers' => true,
-            'intents' => Intents::getDefaultIntents() | Intents::GUILD_MEMBERS | Intents::GUILD_VOICE_STATES | Intents::GUILD_PRESENCES,
+            'intents' => Intents::getDefaultIntents(
+                ) | Intents::GUILD_MEMBERS | Intents::GUILD_VOICE_STATES | Intents::GUILD_PRESENCES,
             'loop' => Loop::get(),
             // Понадобится для отслеживания событий участников
         ]);
@@ -54,7 +55,6 @@ class RunBot
             });
 
             $ds->on(Event::PRESENCE_UPDATE, static function (PresenceUpdate $presence, Discord $discord) {
-
                 $activityGameName = $presence->game->name;
 
                 $userID = $presence->member->id;
@@ -63,11 +63,14 @@ class RunBot
                 ]);
             });
 
-            $ds->on(Event::STAGE_INSTANCE_UPDATE, function (StageInstance $stageInstance, Discord $discord, ?StageInstance $oldStageInstance) {
-                var_dump([
-                    '$stageInstanceID' => $stageInstance->id
-                ]);
-            });
+            $ds->on(
+                Event::STAGE_INSTANCE_UPDATE,
+                function (StageInstance $stageInstance, Discord $discord, ?StageInstance $oldStageInstance) {
+                    var_dump([
+                        '$stageInstanceID' => $stageInstance->id
+                    ]);
+                }
+            );
 
             $ds->on(Event::VOICE_SERVER_UPDATE, function (VoiceServerUpdate $guild, Discord $discord) {
                 var_dump([
@@ -78,7 +81,6 @@ class RunBot
             $ds->on(
                 Event::VOICE_STATE_UPDATE,
                 static function (VoiceStateUpdate $newVsUpdate, Discord $ds, VoiceStateUpdate $oldVsUpdate = null) {
-
                     $newChannelID = $newVsUpdate->channel_id ?? null;
                     $oldChannelID = $oldVsUpdate->channel_id ?? null;
                     $userID = $newVsUpdate->member->id;
@@ -88,13 +90,12 @@ class RunBot
                         '$oldChannelID' => $oldChannelID,
                     ]);
 
-                    # Если user заходит/выходит в IT - ничего не делаем
-//                    if ($newChannelID === self::voiceIT) {
-//                        echo $userID . ' зашел в IT', PHP_EOL;
-//                        return;
-//                    }
-
                     if (is_null($oldChannelID) && !is_null($newChannelID)) {
+                        # Если user заходит/выходит в IT - ничего не делаем
+                        if ($newChannelID === self::voiceIT) {
+                            echo $userID . ' зашел в IT', PHP_EOL;
+                            return;
+                        }
                         echo 'Зашел', PHP_EOL;
                         Message::send($userID, $ds, ['action' => 1]);
                     } elseif (is_null($newChannelID)) {
@@ -102,7 +103,12 @@ class RunBot
                         Message::send($userID, $ds, ['action' => 0]);
                     } elseif ($oldChannelID && $newChannelID) {
                         echo 'Перешел с другого канала', PHP_EOL;
-                        Message::send($userID, $ds, ['action' => 0]);
+                        # Если user заходит/выходит в IT - ничего не делаем
+                        if ($newChannelID === self::voiceIT) {
+                            echo $userID . ' зашел в IT', PHP_EOL;
+                            return;
+                        }
+                        Message::send($userID, $ds, ['action' => 1]);
                         $newVsUpdate->channel_id = null;
                         $oldVsUpdate->channel_id = null;
                     }
