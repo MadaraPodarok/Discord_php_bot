@@ -37,7 +37,7 @@ class Message
         $role = Roles::roleByUserID($userID);
         $gif = RandomGif::gif($name, $options);
         if (empty($gif)) {
-            $gif = RandomGif::KOGO_TI_VIBERESH_GIF;
+            $gif = RandomGif::DUMAET_THE_DEEP;
         }
         $builder = MessageBuilder::new();
 
@@ -72,7 +72,7 @@ class Message
             $role = Roles::roleByUserID($userID);
             $gif = RandomGif::gif($name, $options);
             if (empty($gif)) {
-                $gif = RandomGif::KOGO_TI_VIBERESH_GIF;
+                $gif = RandomGif::DUMAET_THE_DEEP;
             }
             $builder = MessageBuilder::new();
 

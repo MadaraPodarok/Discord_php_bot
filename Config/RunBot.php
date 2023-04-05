@@ -108,10 +108,11 @@ class RunBot
                     $members = $newVsUpdate->channel->members;
 
                     $membersChannelID = [];
-
-                    /** @var VoiceStateUpdate $member */
-                    foreach ($members as $member) {
-                        $membersChannelID[] = $member->user_id;
+                    if ($members) {
+                        /** @var VoiceStateUpdate $member */
+                        foreach ($members as $member) {
+                            $membersChannelID[] = $member->user_id;
+                        }
                     }
                     if ($membersChannelID) {
                         $dEParty = [
@@ -138,13 +139,6 @@ class RunBot
                             Message::sendParty($membersChannelID, $ds, ['gameParty' => 'The Sims']);
                         }
                     }
-
-//                    $membersChannel = $newVsUpdate->channel->members->map(
-//                        static function (VoiceStateUpdate $voiceStateUpdate) {
-//                            return $voiceStateUpdate->member->id;
-//                        }
-//                    );
-//                    var_dump($membersChannel->);
 
 //                    elseif ($oldChannelID && $newChannelID) {
 //                        echo 'Перешел с другого канала', PHP_EOL;

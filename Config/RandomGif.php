@@ -7,11 +7,10 @@ use Log\Log;
 class RandomGif
 {
     private const DAMIR_ZASHEL_V_TLOU_GIF = __DIR__ . '/../Gif/DAMIR_ZASHEL_V_TLOU_GIF.gif';
-    public const KOGO_TI_VIBERESH_GIF = __DIR__ . '/../Gif/KOGO_TI_VIBERESH_GIF.gif';
     private const YA_VERNULSYA_V_STROI_GIF = __DIR__ . '/../Gif/YA_VERNULSYA_V_STROI_GIF.gif';
     private const WOW_HOMELANDER = __DIR__ . '/../Gif/WOW_HOMELANDER.gif';
     private const NE_PON_HOMELANDER = __DIR__ . '/../Gif/NE_PON_HOMELANDER.gif';
-    private const DUMAET_THE_DEEP = __DIR__ . '/../Gif/DUMAET_THE_DEEP.gif';
+    public const DUMAET_THE_DEEP = __DIR__ . '/../Gif/DUMAET_THE_DEEP.gif';
     private const FIFA_TIME = __DIR__ . '/../Gif/FIFA_TIME.gif';
     private const PLUS_SOCIAL_CREDIT = __DIR__ . '/../Gif/PLUS_SOCIAL_CREDIT.gif';
     private const SOSAT_THE_DEEP = __DIR__ . '/../Gif/SOSAT_THE_DEEP.gif';
@@ -70,7 +69,7 @@ class RandomGif
 
         if ($action === 0) {
             $listUrl = [
-                self::KOGO_TI_VIBERESH_GIF,
+                self::DUMAET_THE_DEEP,
                 self::USHEL_SRAT,
             ];
             return $listUrl[array_rand($listUrl)];
