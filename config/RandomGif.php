@@ -62,7 +62,7 @@ class RandomGif
 
     private static function nameDamir(array $options): string
     {
-        $action = $options['action'];
+        $action = $options['action'] ?? null;
 
         if ($action === 0) {
             $listUrl = [
@@ -80,7 +80,7 @@ class RandomGif
             return $listUrl[array_rand($listUrl)];
         }
 
-        $game = $options['game'];
+        $game = $options['game'] ?? null;
 
         if (str_contains($game, 'The Last Of Us')) {
             return self::DAMIR_ZASHEL_V_TLOU_GIF;

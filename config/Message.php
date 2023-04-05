@@ -34,11 +34,13 @@ class Message
         $channel->sendMessage(
             $builder
                 ->setContent($role . PHP_EOL)
-            ->addEmbed([
-                "image" => [
-                    "url" => $url
-                ],
-            ])
+                ->addEmbed([
+                    [
+                        "image" => [
+                            "url" => $url
+                        ],
+                    ]
+                ])
         );
     }
 }
