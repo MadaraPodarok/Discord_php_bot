@@ -37,7 +37,7 @@ class Message
         $role = Roles::roleByUserID($userID);
         $gif = RandomGif::gif($name, $options);
         if (empty($gif)) {
-            $gif = RandomGif::DUMAET_THE_DEEP;
+            return;
         }
         $builder = MessageBuilder::new();
 

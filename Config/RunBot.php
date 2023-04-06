@@ -105,40 +105,40 @@ class RunBot
                         Message::send($userID, $ds, ['action' => 0]);
                     }
 
-                    $members = $newVsUpdate->channel->members;
-
-                    $membersChannelID = [];
-                    if ($members) {
-                        /** @var VoiceStateUpdate $member */
-                        foreach ($members as $member) {
-                            $membersChannelID[] = $member->user_id;
-                        }
-                    }
-                    if ($membersChannelID) {
-                        $dEParty = [
-                            0 => '386154772568473610',
-                            1 => '274889678950367232',
-                        ];
-                        if (array_intersect($membersChannelID, $dEParty)) {
-                            Message::sendParty($membersChannelID, $ds, ['gameParty' => 'War Thunder']);
-                        }
-                        $dEAParty = [
-                            0 => '386154772568473610',
-                            1 => '274889678950367232',
-                            2 => '911741107061276725',
-                        ];
-                        if (array_intersect($membersChannelID, $dEAParty)) {
-                            Message::sendParty($membersChannelID, $ds, ['gameParty' => 'Dota 2']);
-                        }
-                        $tSDParty = [
-                            0 => '248406110019518464',
-                            1 => '258640185246351360',
-                            2 => '386154772568473610',
-                        ];
-                        if (array_intersect($membersChannelID, $tSDParty)) {
-                            Message::sendParty($membersChannelID, $ds, ['gameParty' => 'The Sims']);
-                        }
-                    }
+//                    $members = $newVsUpdate->channel->members;
+//
+//                    $membersChannelID = [];
+//                    if ($members) {
+//                        /** @var VoiceStateUpdate $member */
+//                        foreach ($members as $member) {
+//                            $membersChannelID[] = $member->user_id;
+//                        }
+//                    }
+//                    if ($membersChannelID) {
+//                        $dEParty = [
+//                            0 => '386154772568473610',
+//                            1 => '274889678950367232',
+//                        ];
+//                        if (array_intersect($membersChannelID, $dEParty)) {
+//                            Message::sendParty($membersChannelID, $ds, ['gameParty' => 'War Thunder']);
+//                        }
+//                        $dEAParty = [
+//                            0 => '386154772568473610',
+//                            1 => '274889678950367232',
+//                            2 => '911741107061276725',
+//                        ];
+//                        if (array_intersect($membersChannelID, $dEAParty)) {
+//                            Message::sendParty($membersChannelID, $ds, ['gameParty' => 'Dota 2']);
+//                        }
+//                        $tSDParty = [
+//                            0 => '248406110019518464',
+//                            1 => '258640185246351360',
+//                            2 => '386154772568473610',
+//                        ];
+//                        if (array_intersect($membersChannelID, $tSDParty)) {
+//                            Message::sendParty($membersChannelID, $ds, ['gameParty' => 'The Sims']);
+//                        }
+//                    }
 
 //                    elseif ($oldChannelID && $newChannelID) {
 //                        echo 'Перешел с другого канала', PHP_EOL;
