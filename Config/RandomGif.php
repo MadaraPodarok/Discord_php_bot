@@ -85,7 +85,7 @@ class RandomGif
 
         $game = $options['game'] ?? null;
 
-        if (str_contains($game, 'The Last Of Us')) {
+        if (str_contains($game, 'The Last of Us')) {
             return self::DAMIR_ZASHEL_V_TLOU_GIF;
         }
         if (str_contains($game, 'War Thunder')) {
