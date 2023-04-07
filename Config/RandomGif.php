@@ -6,8 +6,8 @@ use Log\Log;
 
 class RandomGif
 {
-    private const DAMIR_ZASHEL_V_TLOU_GIF = __DIR__ . '/../Gif/DAMIR_ZASHEL_V_TLOU_GIF.gif';
-    private const YA_VERNULSYA_V_STROI_GIF = __DIR__ . '/../Gif/YA_VERNULSYA_V_STROI_GIF.gif';
+    private const DAMIR_ZASHEL_V_TLOU = __DIR__ . '/../Gif/DAMIR_ZASHEL_V_TLOU.gif';
+    private const YA_VERNULSYA_V_STROI = __DIR__ . '/../Gif/YA_VERNULSYA_V_STROI.gif';
     private const WOW_HOMELANDER = __DIR__ . '/../Gif/WOW_HOMELANDER.gif';
     private const NE_PON_HOMELANDER = __DIR__ . '/../Gif/NE_PON_HOMELANDER.gif';
     public const DUMAET_THE_DEEP = __DIR__ . '/../Gif/DUMAET_THE_DEEP.gif';
@@ -28,6 +28,7 @@ class RandomGif
     private const FREE_1 = __DIR__ . '/../Gif/FREE_1.gif';
     private const USHEL_SRAT = __DIR__ . '/../Gif/USHEL_SRAT.gif';
     private const EGOR_AND_CHINGIZ = __DIR__ . '/../Gif/EGOR_AND_CHINGIZ.gif';
+    private const IDEM_V_CS = __DIR__ . '/../Gif/IDEM_V_CS.gif';
 
 
     public static function gif(string $name, array $options): string
@@ -49,6 +50,10 @@ class RandomGif
                 return self::nameAskar($options);
             case 'Sergei':
                 return self::nameSergei($options);
+            case 'Ivan':
+                return self::nameIvan($options);
+            case 'Maxim':
+                return self::nameMaxim($options);
             case 'Tester':
                 $randomUrl = random_int(1, 2);
                 switch ($randomUrl) {
@@ -75,18 +80,23 @@ class RandomGif
             return $listUrl[array_rand($listUrl)];
         }
         if ($action === 1) {
-            $listUrl = [
-                self::YA_VERNULSYA_V_STROI_GIF,
-                self::WOW_HOMELANDER,
-                self::NE_PON_HOMELANDER,
-            ];
-            return $listUrl[array_rand($listUrl)];
+            $urlOrVideo = random_int(0, 1);
+            if ($urlOrVideo === 0) {
+                $listUrl = [
+                    self::YA_VERNULSYA_V_STROI,
+                    self::WOW_HOMELANDER,
+                    self::NE_PON_HOMELANDER,
+                ];
+                return $listUrl[array_rand($listUrl)];
+            }
+
+            return RandomVideo::video('Damir', $options);
         }
 
         $game = $options['game'] ?? null;
 
         if (str_contains($game, 'The Last of Us')) {
-            return self::DAMIR_ZASHEL_V_TLOU_GIF;
+            return self::DAMIR_ZASHEL_V_TLOU;
         }
         if (str_contains($game, 'War Thunder')) {
             return self::SMOTRU_NA_PIDOROV;
@@ -125,19 +135,32 @@ class RandomGif
             return $listUrl[array_rand($listUrl)];
         }
         if ($action === 1) {
-            $listUrl = [
-                self::FIFA_TIME,
-            ];
-            return $listUrl[array_rand($listUrl)];
+            $urlOrVideo = random_int(0, 1);
+            if ($urlOrVideo === 0) {
+                $listUrl = [
+                    self::FIFA_TIME,
+                    self::IDEM_V_CS,
+                ];
+                return $listUrl[array_rand($listUrl)];
+            }
+            return RandomVideo::video('Chingiz', $options);
         }
 
         $game = $options['game'] ?? null;
 
+        if (str_contains($game, 'FIFA')) {
+            return self::FIFA_TIME;
+        }
+
         if (str_contains($game, 'Counter-Strike')) {
-            return self::PLUS_SOCIAL_CREDIT;
+            return self::IDEM_V_CS;
         }
 
         $gameParty = $options['gameParty'] ?? null;
+
+        if (str_contains($game, 'Counter-Strike')) {
+            return self::IDEM_V_CS;
+        }
 
         Log::sendLog('error', 'Чингиз куда то зашел?', [
             'action' => $action,
@@ -157,19 +180,32 @@ class RandomGif
             return $listUrl[array_rand($listUrl)];
         }
         if ($action === 1) {
-            $listUrl = [
-                self::FIFA_TIME,
-            ];
-            return $listUrl[array_rand($listUrl)];
+            $urlOrVideo = random_int(0, 1);
+            if ($urlOrVideo === 0) {
+                $listUrl = [
+                    self::FIFA_TIME,
+                    self::IDEM_V_CS,
+                ];
+                return $listUrl[array_rand($listUrl)];
+            }
+            return RandomVideo::video('Alex', $options);
         }
 
         $game = $options['game'] ?? null;
 
+        if (str_contains($game, 'FIFA')) {
+            return self::FIFA_TIME;
+        }
+
         if (str_contains($game, 'Counter-Strike')) {
-            return self::PLUS_SOCIAL_CREDIT;
+            return self::IDEM_V_CS;
         }
 
         $gameParty = $options['gameParty'] ?? null;
+
+        if (str_contains($game, 'Counter-Strike')) {
+            return self::IDEM_V_CS;
+        }
 
         Log::sendLog('error', 'Александр куда то зашел?', [
             'action' => $action,
@@ -190,7 +226,7 @@ class RandomGif
         }
         if ($action === 1) {
             $listUrl = [
-                self::YA_VERNULSYA_V_STROI_GIF,
+                self::YA_VERNULSYA_V_STROI,
                 self::WOW_HOMELANDER,
                 self::NE_PON_HOMELANDER,
             ];
@@ -329,6 +365,83 @@ class RandomGif
             return self::KOMANDA_V_SBORE;
         }
         Log::sendLog('error', 'Сергей куда то зашел?', [
+            'action' => $action,
+            'game' => $game,
+            'gameParty' => $gameParty
+        ]);
+        return '';
+    }
+
+    private static function nameIvan(array $options): string
+    {
+        $action = $options['action'] ?? null;
+        if ($action === 0) {
+            $listUrl = [
+                self::DUMAET_THE_DEEP,
+            ];
+            return $listUrl[array_rand($listUrl)];
+        }
+        if ($action === 1) {
+            $listUrl = [
+                self::FIFA_TIME,
+                self::IDEM_V_CS,
+            ];
+            return $listUrl[array_rand($listUrl)];
+        }
+
+        $game = $options['game'] ?? null;
+
+        if (str_contains($game, 'FIFA')) {
+            return self::FIFA_TIME;
+        }
+
+        if (str_contains($game, 'Counter-Strike')) {
+            return self::IDEM_V_CS;
+        }
+
+        $gameParty = $options['gameParty'] ?? null;
+
+        if (str_contains($game, 'Counter-Strike')) {
+            return self::IDEM_V_CS;
+        }
+
+        Log::sendLog('error', 'Иван куда то зашел?', [
+            'action' => $action,
+            'game' => $game,
+            'gameParty' => $gameParty
+        ]);
+        return '';
+    }
+
+    private static function nameMaxim(array $options): string
+    {
+        $action = $options['action'] ?? null;
+        if ($action === 0) {
+            $listUrl = [
+                self::DUMAET_THE_DEEP,
+            ];
+            return $listUrl[array_rand($listUrl)];
+        }
+        if ($action === 1) {
+            $listUrl = [
+                self::IDEM_V_CS,
+            ];
+            return $listUrl[array_rand($listUrl)];
+        }
+
+        $game = $options['game'] ?? null;
+
+        if (str_contains($game, 'Counter-Strike')) {
+            return self::IDEM_V_CS;
+        }
+
+        $gameParty = $options['gameParty'] ?? null;
+
+        if (str_contains($game, 'Counter-Strike')) {
+            return self::IDEM_V_CS;
+        }
+
+        Log::sendLog('error', 'Максим куда то зашел?', [
             'action' => $action,
             'game' => $game,
             'gameParty' => $gameParty

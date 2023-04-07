@@ -138,6 +138,15 @@ class RunBot
                         if (array_intersect($membersChannelID, $tSDParty)) {
                             Message::sendParty($membersChannelID, $ds, ['gameParty' => 'The Sims']);
                         }
+                        $iMChAParty = [
+                            0 => '262446334441684993',
+                            1 => '726837943741972570',
+                            2 => '276034798009581569',
+                            4 => '268277651599261697',
+                        ];
+                        if (array_intersect($membersChannelID, $iMChAParty)) {
+                            Message::sendParty($membersChannelID, $ds, ['gameParty' => 'Counter-Strike']);
+                        }
                     }
                 }
             );
