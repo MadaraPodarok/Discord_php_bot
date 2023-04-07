@@ -93,16 +93,21 @@ class RunBot
                     ]);
 
                     if (is_null($oldChannelID) && !is_null($newChannelID)) {
-//                        # Если user заходит/выходит в IT - ничего не делаем
-//                        if ($newChannelID === self::voiceIT) {
-//                            echo $userID . ' зашел в IT', PHP_EOL;
-//                            return;
-//                        }
                         echo 'Зашел', PHP_EOL;
+                        # Если user заходит/выходит в IT - ничего не делаем
+                        if ($newChannelID === self::voiceIT) {
+                            echo $userID . ' зашел в IT', PHP_EOL;
+                            return;
+                        }
                         Message::send($userID, $ds, ['action' => 1]);
                     } elseif (is_null($newChannelID)) {
                         echo 'Вышел', PHP_EOL;
                         Message::send($userID, $ds, ['action' => 0]);
+                    }
+
+                    if ($oldChannelID === self::voiceIT && !is_null($newChannelID)) {
+                        echo $userID . ' вышел из IT', PHP_EOL;
+                        return;
                     }
 
                     $members = $newVsUpdate->channel->members;
@@ -115,6 +120,10 @@ class RunBot
                         }
                     }
                     if ($membersChannelID) {
+                        var_dump([
+                            '$membersChannelID' => $membersChannelID
+                        ]);
+                        return;
                         $dEParty = [
                             0 => '386154772568473610',
                             1 => '274889678950367232',
