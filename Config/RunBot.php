@@ -123,37 +123,29 @@ class RunBot
                         var_dump([
                             '$membersChannelID' => $membersChannelID
                         ]);
-                        return;
-                        $dEParty = [
-                            0 => '386154772568473610',
-                            1 => '274889678950367232',
-                        ];
-                        if (array_intersect($membersChannelID, $dEParty)) {
+                        #Damir Egor
+                        if (in_array('386154772568473610', $membersChannelID, true) &&
+                            in_array('274889678950367232', $membersChannelID, true)) {
                             Message::sendParty($membersChannelID, $ds, ['gameParty' => 'War Thunder']);
                         }
-                        $dEAParty = [
-                            0 => '386154772568473610',
-                            1 => '274889678950367232',
-                            2 => '911741107061276725',
-                        ];
-                        if (array_intersect($membersChannelID, $dEAParty)) {
+                        # Damir Egor Anast
+                        if (in_array('386154772568473610', $membersChannelID, true) &&
+                            in_array('274889678950367232', $membersChannelID, true) &&
+                            in_array('911741107061276725', $membersChannelID, true)) {
                             Message::sendParty($membersChannelID, $ds, ['gameParty' => 'Dota 2']);
                         }
-                        $tSDParty = [
-                            0 => '248406110019518464',
-                            1 => '258640185246351360',
-                            2 => '386154772568473610',
-                        ];
-                        if (array_intersect($membersChannelID, $tSDParty)) {
+                        # Timur Sergei Damir
+                        if (in_array('248406110019518464', $membersChannelID, true) &&
+                            in_array('258640185246351360', $membersChannelID, true) &&
+                            in_array('386154772568473610', $membersChannelID, true)) {
                             Message::sendParty($membersChannelID, $ds, ['gameParty' => 'The Sims']);
                         }
-                        $iMChAParty = [
-                            0 => '262446334441684993',
-                            1 => '726837943741972570',
-                            2 => '276034798009581569',
-                            4 => '268277651599261697',
-                        ];
-                        if (array_intersect($membersChannelID, $iMChAParty)) {
+
+                        # Ivan Maxim Alex Chingiz
+                        if (in_array('262446334441684993', $membersChannelID, true) &&
+                            in_array('726837943741972570', $membersChannelID, true) &&
+                            in_array('276034798009581569', $membersChannelID, true) &&
+                            in_array('268277651599261697', $membersChannelID, true)) {
                             Message::sendParty($membersChannelID, $ds, ['gameParty' => 'Counter-Strike']);
                         }
                     }
