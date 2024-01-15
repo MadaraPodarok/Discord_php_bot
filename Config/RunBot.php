@@ -110,15 +110,16 @@ class RunBot
                         return;
                     }
 
-                    $members = $newVsUpdate->channel->members;
-
-                    $membersChannelID = [];
-                    if ($members) {
-                        /** @var VoiceStateUpdate $member */
-                        foreach ($members as $member) {
-                            $membersChannelID[] = $member->user_id;
-                        }
-                    }
+//                    $members = $newVsUpdate->channel->members;
+//
+//                    $membersChannelID = [];
+//                    if ($members) {
+//                        /** @var VoiceStateUpdate $member */
+//                        foreach ($members as $member) {
+//                            $membersChannelID[] = $member->user_id;
+//                        }
+//                    }
+                    /*
                     if ($membersChannelID) {
                         var_dump([
                             '$membersChannelID' => $membersChannelID
@@ -149,6 +150,7 @@ class RunBot
                             Message::sendParty($membersChannelID, $ds, ['gameParty' => 'Counter-Strike']);
                         }
                     }
+                    */
                 }
             );
         });

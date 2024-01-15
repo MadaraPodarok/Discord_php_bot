@@ -48,39 +48,38 @@ class Message
         );
     }
 
-    /**
-     * @throws FileNotFoundException
-     * @throws NoPermissionsException
-     */
-    public static function sendParty(array $usersID, Discord $discord, array $options): void
-    {
-        if (getenv('APP_ENV') === 'production') {
-            $channelMessage = self::channelMessageChat;
-        } else {
-            $channelMessage = self::channelMessageTest;
-        }
 
-        foreach ($usersID as $userID) {
-            $name = Roles::nameByUserID($userID);
-            if (empty($name)) {
-                return;
-            }
 
-            /** @var Channel $channel */
-            $channel = $discord->getChannel($channelMessage);
+//    public static function sendParty(array $usersID, Discord $discord, array $options): void
+//    {
+//        if (getenv('APP_ENV') === 'production') {
+//            $channelMessage = self::channelMessageChat;
+//        } else {
+//            $channelMessage = self::channelMessageTest;
+//        }
+//
+//        foreach ($usersID as $userID) {
+//            $name = Roles::nameByUserID($userID);
+//            if (empty($name)) {
+//                return;
+//            }
+//
+//            /** @var Channel $channel */
+//            $channel = $discord->getChannel($channelMessage);
+//
+//            $role = Roles::roleByUserID($userID);
+//            $gif = RandomGif::gif($name, $options);
+//            if (empty($gif)) {
+//                $gif = RandomGif::DUMAET_THE_DEEP;
+//            }
+//            $builder = MessageBuilder::new();
+//
+//            $channel->sendMessage(
+//                $builder
+//                    ->setContent($role . PHP_EOL)
+//                    ->addFile($gif)
+//            );
+//        }
+//    }
 
-            $role = Roles::roleByUserID($userID);
-            $gif = RandomGif::gif($name, $options);
-            if (empty($gif)) {
-                $gif = RandomGif::DUMAET_THE_DEEP;
-            }
-            $builder = MessageBuilder::new();
-
-            $channel->sendMessage(
-                $builder
-                    ->setContent($role . PHP_EOL)
-                    ->addFile($gif)
-            );
-        }
-    }
 }

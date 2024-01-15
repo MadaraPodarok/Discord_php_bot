@@ -54,6 +54,8 @@ class RandomGif
                 return self::nameIvan($options);
             case 'Maxim':
                 return self::nameMaxim($options);
+            case 'Sergei_Piter':
+                return self::nameSergeiPiter($options);
             case 'Tester':
                 $randomUrl = random_int(1, 2);
                 switch ($randomUrl) {
@@ -446,6 +448,31 @@ class RandomGif
             'game' => $game,
             'gameParty' => $gameParty
         ]);
+        return '';
+    }
+
+    private static function nameSergeiPiter(array $options): string
+    {
+        $action = $options['action'] ?? null;
+
+        if ($action === 1) {
+            return RandomVideo::video('Sergei_Piter', $options);
+        }
+
+        $game = $options['game'] ?? null;
+
+        if (str_contains($game, 'Furry')) {
+            return RandomVideo::video('Sergei_Piter', $options);
+        }
+
+        $gameParty = $options['gameParty'] ?? null;
+
+        Log::sendLog('error', 'Дамир куда то зашел?', [
+            'action' => $action,
+            'game' => $game,
+            'gameParty' => $gameParty
+        ]);
+
         return '';
     }
 }
