@@ -9,4 +9,6 @@
 
 #### 3. ```docker compose up -d --build``` . 801 порт занимает nginx
 
-#### 4. Запуск бота ```php run.php```
+#### 4. ```docker exec -it php bash``` . ЗАХОДИМ В КОНТЕЙНЕР
+
+#### 5. Запуск бота ```php run.php```
