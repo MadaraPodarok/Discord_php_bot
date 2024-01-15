@@ -10,9 +10,9 @@
     }
   ],
   "require": {
-    "php": "^7.4",
-    "team-reflex/discord-php": "^7.3",
-    "vlucas/phpdotenv": "^v5.5.0",
+    "php": "^8.3",
+    "team-reflex/discord-php": "dev-master",
+    "vlucas/phpdotenv": "^v5.6.0",
     "ext-json": "*",
     "ext-zlib": "*",
     "ext-mbstring": "*",

@@ -18,7 +18,7 @@ class RunBot
 {
     private Discord $discord;
 
-    private const voiceIT = '1034416760415342684';
+    private const string voiceIT = '1034416760415342684';
 
     /**
      * @throws IntentException
@@ -26,7 +26,7 @@ class RunBot
     public function __construct()
     {
         $this->discord = new Discord([
-            'token' => $_ENV['DISCORD_TOKEN'],
+            'token' => getenv('DISCORD_TOKEN'),
             'loadAllMembers' => true,
             'intents' => Intents::getDefaultIntents(
                 ) | Intents::GUILD_MEMBERS | Intents::GUILD_VOICE_STATES | Intents::GUILD_PRESENCES,

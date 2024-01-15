@@ -10,8 +10,8 @@ use Discord\Parts\Channel\Channel;
 
 class Message
 {
-    private const channelMessageChat = '274886275176202240';
-    private const channelMessageTest = '1092737067252990002';
+    private const string channelMessageChat = '274886275176202240';
+    private const string channelMessageTest = '1092737067252990002';
 
     /**
      * @throws NoPermissionsException

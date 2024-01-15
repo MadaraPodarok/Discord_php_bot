@@ -6,8 +6,8 @@ use Log\Log;
 
 class RandomVideo
 {
-    private const PAPICH_ALO = __DIR__ . '/../Video/PAPICH_ALO.mp4';
-    private const PAPICH_YA_NE_VERU = __DIR__ . '/../Video/PAPICH_YA_NE_VERU.mp4';
+    private const string PAPICH_ALO = __DIR__ . '/../Video/PAPICH_ALO.mp4';
+    private const string PAPICH_YA_NE_VERU = __DIR__ . '/../Video/PAPICH_YA_NE_VERU.mp4';
 
     public static function video(string $name, array $options): string
     {

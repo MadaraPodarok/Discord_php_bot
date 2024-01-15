@@ -13,8 +13,8 @@ services:
     volumes:
       - type: bind
         source: ./
-        target: /var/www
-    working_dir: /var/www
+        target: /var/www/Discord_php_bot
+    working_dir: /var/www/Discord_php_bot
 
   php_nginx:
     container_name: php_nginx
@@ -28,12 +28,12 @@ services:
     volumes:
       - type: bind
         source: ./
-        target: /var/www
+        target: /var/www/Discord_php_bot
       - type: bind
         source: ./docker/php_nginx/conf.d
         target: /etc/nginx/conf.d
         read_only: true
-    working_dir: /var/www
+    working_dir: /var/www/Discord_php_bot
 
 
 

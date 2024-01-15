@@ -1,4 +1,4 @@
-ROOT_DIR=/var/www
+ROOT_DIR=/var/www/Discord_php_bot/
 cd $ROOT_DIR # Меняем рабочую директорию
 whoami
 

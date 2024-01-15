@@ -6,29 +6,29 @@ use Log\Log;
 
 class RandomGif
 {
-    private const DAMIR_ZASHEL_V_TLOU = __DIR__ . '/../Gif/DAMIR_ZASHEL_V_TLOU.gif';
-    private const YA_VERNULSYA_V_STROI = __DIR__ . '/../Gif/YA_VERNULSYA_V_STROI.gif';
-    private const WOW_HOMELANDER = __DIR__ . '/../Gif/WOW_HOMELANDER.gif';
-    private const NE_PON_HOMELANDER = __DIR__ . '/../Gif/NE_PON_HOMELANDER.gif';
-    public const DUMAET_THE_DEEP = __DIR__ . '/../Gif/DUMAET_THE_DEEP.gif';
-    private const FIFA_TIME = __DIR__ . '/../Gif/FIFA_TIME.gif';
-    private const PLUS_SOCIAL_CREDIT = __DIR__ . '/../Gif/PLUS_SOCIAL_CREDIT.gif';
-    private const SOSAT_THE_DEEP = __DIR__ . '/../Gif/SOSAT_THE_DEEP.gif';
-    private const IGRAU_V_DOTY_NE_MESHAI = __DIR__ . '/../Gif/IGRAU_V_DOTY_NE_MESHAI.gif';
-    private const UDALYAU_GENSHIN = __DIR__ . '/../Gif/UDALYAU_GENSHIN.gif';
-    private const EGOR_GO_DOTKY = __DIR__ . '/../Gif/EGOR_GO_DOTKY.gif';
-    private const SMOTRU_NA_PIDOROV = __DIR__ . '/../Gif/SMOTRU_NA_PIDOROV.gif';
-    private const OOF_HOMELANDER = __DIR__ . '/../Gif/OOF_HOMELANDER.gif';
-    private const POLEGCHE_HOMELANDER = __DIR__ . '/../Gif/POLEGCHE_HOMELANDER.gif';
+    private const string DAMIR_ZASHEL_V_TLOU = __DIR__ . '/../Gif/DAMIR_ZASHEL_V_TLOU.gif';
+    private const string YA_VERNULSYA_V_STROI = __DIR__ . '/../Gif/YA_VERNULSYA_V_STROI.gif';
+    private const string WOW_HOMELANDER = __DIR__ . '/../Gif/WOW_HOMELANDER.gif';
+    private const string NE_PON_HOMELANDER = __DIR__ . '/../Gif/NE_PON_HOMELANDER.gif';
+    public const string DUMAET_THE_DEEP = __DIR__ . '/../Gif/DUMAET_THE_DEEP.gif';
+    private const string FIFA_TIME = __DIR__ . '/../Gif/FIFA_TIME.gif';
+    private const string PLUS_SOCIAL_CREDIT = __DIR__ . '/../Gif/PLUS_SOCIAL_CREDIT.gif';
+    private const string SOSAT_THE_DEEP = __DIR__ . '/../Gif/SOSAT_THE_DEEP.gif';
+    private const string IGRAU_V_DOTY_NE_MESHAI = __DIR__ . '/../Gif/IGRAU_V_DOTY_NE_MESHAI.gif';
+    private const string UDALYAU_GENSHIN = __DIR__ . '/../Gif/UDALYAU_GENSHIN.gif';
+    private const string EGOR_GO_DOTKY = __DIR__ . '/../Gif/EGOR_GO_DOTKY.gif';
+    private const string SMOTRU_NA_PIDOROV = __DIR__ . '/../Gif/SMOTRU_NA_PIDOROV.gif';
+    private const string OOF_HOMELANDER = __DIR__ . '/../Gif/OOF_HOMELANDER.gif';
+    private const string POLEGCHE_HOMELANDER = __DIR__ . '/../Gif/POLEGCHE_HOMELANDER.gif';
 
-    private const YA_VERNULSYA_THE_DEEP = __DIR__ . '/../Gif/YA_VERNULSYA_THE_DEEP.gif';
-    private const YA_PROSHAU_TEBYA = __DIR__ . '/../Gif/YA_PROSHAU_TEBYA.gif';
-    private const DAYNI_OBSHII_SBOR = __DIR__ . '/../Gif/DAYNI_OBSHII_SBOR.gif';
-    private const KOMANDA_V_SBORE = __DIR__ . '/../Gif/KOMANDA_V_SBORE.gif';
-    private const FREE_1 = __DIR__ . '/../Gif/FREE_1.gif';
-    private const USHEL_SRAT = __DIR__ . '/../Gif/USHEL_SRAT.gif';
-    private const EGOR_AND_CHINGIZ = __DIR__ . '/../Gif/EGOR_AND_CHINGIZ.gif';
-    private const IDEM_V_CS = __DIR__ . '/../Gif/IDEM_V_CS.gif';
+    private const string YA_VERNULSYA_THE_DEEP = __DIR__ . '/../Gif/YA_VERNULSYA_THE_DEEP.gif';
+    private const string YA_PROSHAU_TEBYA = __DIR__ . '/../Gif/YA_PROSHAU_TEBYA.gif';
+    private const string DAYNI_OBSHII_SBOR = __DIR__ . '/../Gif/DAYNI_OBSHII_SBOR.gif';
+    private const string KOMANDA_V_SBORE = __DIR__ . '/../Gif/KOMANDA_V_SBORE.gif';
+    private const string FREE_1 = __DIR__ . '/../Gif/FREE_1.gif';
+    private const string USHEL_SRAT = __DIR__ . '/../Gif/USHEL_SRAT.gif';
+    private const string EGOR_AND_CHINGIZ = __DIR__ . '/../Gif/EGOR_AND_CHINGIZ.gif';
+    private const string IDEM_V_CS = __DIR__ . '/../Gif/IDEM_V_CS.gif';
 
 
     public static function gif(string $name, array $options): string

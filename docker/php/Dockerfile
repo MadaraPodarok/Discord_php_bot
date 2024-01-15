@@ -1,27 +1,33 @@
-FROM php:7.4-fpm
-WORKDIR /var/www
+FROM php:8.3-fpm
+WORKDIR /var/www/Discord_php_bot
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    cron \
-    build-essential \
-    libpng-dev \
-    libjpeg62-turbo-dev \
-    libfreetype6-dev \
-    locales \
-    libmagickwand-dev \
-    zip \
-    jpegoptim optipng pngquant gifsicle \
-    unzip \
-    git \
-    libpq-dev \
-    nano \
-    libzip-dev \
-    curl
+RUN set -eux && apt-get update && apt-get -y full-upgrade && apt-get install -y \
+            cron \
+            build-essential \
+            libpng-dev \
+            libxml2-dev \
+            libjpeg62-turbo-dev \
+            libfreetype6-dev \
+            locales \
+            zip \
+            jpegoptim optipng pngquant gifsicle \
+            unzip \
+            git \
+            libpq-dev \
+            libonig-dev \
+            nano \
+            libzip-dev \
+            sudo \
+            mc \
+            net-tools \
+            curl \
+            tzdata \
+            wget
 
 # Чистим кеш APT
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
-RUN docker-php-ext-install zip exif pcntl sockets
+RUN docker-php-ext-install mbstring exif pcntl sockets soap bcmath zip
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer --2
 
